@@ -14,7 +14,7 @@ interface LayoutProps {
 export default function layout({ children }: LayoutProps) {
     return (
         <div className='main-container'>
-            <nav className="navbar navbar-expand bg-secondary">
+            <nav className="navbar navbar-expand bg-secondary flex-none">
                 <div className="container">
                     {/* ===== LOGO BRAND ===== */}
                     <Link className='navbar-brand' href='/'>

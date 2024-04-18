@@ -24,7 +24,8 @@
 		color: variables.$input-placeholder;
 	}
 
-	input:focus {
+	input:focus, input:focus-visible {
+		outline-width: 1px;
 		outline-color: variables.$primary;
 	}
 

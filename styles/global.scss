@@ -55,3 +55,27 @@ hr {
 		transform: rotate(360deg);
 	}
 }
+
+.create-account-terms-text {
+	font-size: 0.875rem;
+	line-height: 1.375rem;
+}
+
+.flex-none {
+	flex: none;
+}
+
+.back-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	gap: 0.5rem;
+	color: variables.$dark;
+	text-decoration: none;
+	font-size: 1.125rem;
+	line-height: 1.625rem;
+	font-weight: 600;
+}

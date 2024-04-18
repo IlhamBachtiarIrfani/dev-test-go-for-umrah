@@ -8,6 +8,7 @@ interface PasswordInputProps {
     label: string;
     placeholder: string;
     name: string;
+    defaultValue?: string;
     onInputChange?: (value: string) => void;
     isError?: boolean;
     errorText?: string;
@@ -15,7 +16,7 @@ interface PasswordInputProps {
 
 export default function PasswordInput(props: PasswordInputProps) {
     const [isShow, setShow] = useState(false)
-    const [passwordInput, setPasswordInput] = useState("")
+    const [passwordInput, setPasswordInput] = useState(props.defaultValue ?? "")
 
     function togglePassword(e: MouseEvent<HTMLSpanElement>) {
         e.preventDefault();
@@ -40,7 +41,13 @@ export default function PasswordInput(props: PasswordInputProps) {
         <div className='password-input'>
             <label>{props.label}</label>
             <div>
-                <input type={isShow ? 'text' : 'password'} placeholder={props.placeholder} name={props.name} onChange={onPasswordChange} />
+                <input
+                    value={passwordInput}
+                    type={isShow ? 'text' : 'password'}
+                    placeholder={props.placeholder}
+                    name={props.name}
+                    onChange={onPasswordChange}
+                />
 
                 <span className="px-3" onClick={togglePassword}>
                     {

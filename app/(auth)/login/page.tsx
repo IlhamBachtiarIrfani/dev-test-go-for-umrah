@@ -9,13 +9,12 @@ import EnterPasswordState from './enterPasswordState';
 
 export default function LoginPage() {
     const [loginState, setLoginState] = useState('email');
+    const [emailInput, setEmailInput] = useState('');
 
     function handleEmailSubmit(email: string) {
         setLoginState('password');
         setEmailInput(email);
     };
-
-    const [emailInput, setEmailInput] = useState('');
 
     function handleLoginSuccess() {
         alert("Login Success!");
@@ -33,7 +32,7 @@ export default function LoginPage() {
                 </div>
                 <Copyright />
             </div>
-            <div className='col-6 d-none d-lg-block mosque-background'>{/* Mosque background image */}</div>
+            <div className='col-6 d-none d-lg-block mosque-background'></div>
         </div>
     );
 }

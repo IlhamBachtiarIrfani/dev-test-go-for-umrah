@@ -9,13 +9,14 @@ interface TextInputProps {
     placeholder: string;
     name: string;
     type?: string;
+    defaultValue?: string;
     onInputChange?: (value: string) => void;
     isError?: boolean;
     errorText?: string;
 }
 
 export default function TextInput(props: TextInputProps) {
-    const [textInput, setTextInput] = useState("")
+    const [textInput, setTextInput] = useState(props.defaultValue ?? "")
 
     function onTextChange(e: ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
@@ -32,7 +33,13 @@ export default function TextInput(props: TextInputProps) {
     return (
         <div className='text-input'>
             <label>{props.label}</label>
-            <input type={props.type ?? 'text'} placeholder={props.placeholder} name={props.name} onChange={onTextChange} value={textInput} />
+            <input
+                type={props.type ?? 'text'}
+                placeholder={props.placeholder}
+                name={props.name}
+                onChange={onTextChange}
+                value={textInput}
+            />
 
             {
                 props.isError ?

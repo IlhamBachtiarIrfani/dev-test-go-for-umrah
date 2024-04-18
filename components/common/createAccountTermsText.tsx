@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function CreateAccountTermsText() {
     return (
-        <p className='text-center mt-4 text-muted'>
+        <p className='text-center mt-4 text-muted create-account-terms-text'>
             By signing in or creating an account, you agree with our <Link className='text-link-primary' href='/terms-conditions'>Terms & conditions</Link> and <Link className='text-link-primary' href='/privacy-statement'>Privacy statement</Link>
         </p>
     )
