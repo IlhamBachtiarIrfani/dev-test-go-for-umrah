@@ -1,21 +1,60 @@
-import React from 'react'
+'use client'
 
-import "@ilhamirfan/styles/textInput.scss"
+import React, { useState, MouseEvent, ChangeEvent } from 'react'
+
+import "@ilhamirfan/styles/passwordInput.scss"
 
 interface PasswordInputProps {
     label: string;
     placeholder: string;
     name: string;
+    onInputChange?: (value: string) => void;
+    isError?: boolean;
+    errorText?: string;
 }
 
 export default function PasswordInput(props: PasswordInputProps) {
+    const [isShow, setShow] = useState(false)
+    const [passwordInput, setPasswordInput] = useState("")
+
+    function togglePassword(e: MouseEvent<HTMLSpanElement>) {
+        e.preventDefault();
+
+        setShow(value => !value);
+    }
+
+
+    function onPasswordChange(e: ChangeEvent<HTMLInputElement>) {
+        e.preventDefault();
+
+        const value = e.target.value;
+
+        setPasswordInput(value);
+
+        if (props.onInputChange) {
+            props.onInputChange(value);
+        }
+    }
+
     return (
-        <div className='text-input'>
-            <label className="form-label">{props.label}</label>
-            <div className='input-group'>
-                <input type={'text'} className="form-control" placeholder={props.placeholder} name={props.name} />
-                <span className="">Show</span>
+        <div className='password-input'>
+            <label>{props.label}</label>
+            <div>
+                <input type={isShow ? 'text' : 'password'} placeholder={props.placeholder} name={props.name} onChange={onPasswordChange} />
+
+                <span className="px-3" onClick={togglePassword}>
+                    {
+                        isShow ? "Hide" : "Show"
+                    }
+                </span>
             </div>
+
+            {
+                props.isError ?
+                    <p className='input-error'>{props.errorText}</p>
+                    :
+                    <></>
+            }
         </div>
     )
 }

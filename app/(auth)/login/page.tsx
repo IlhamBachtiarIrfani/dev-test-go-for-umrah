@@ -1,25 +1,39 @@
-import Image from 'next/image'
-import React from 'react'
+'use client'
 
-import backgroundImage from '@ilhamirfan/public/image/background.png'
-import TextInput from '@ilhamirfan/components/input/textInput'
-import PasswordInput from '@ilhamirfan/components/input/passwordInput'
+import React, { useState } from 'react';
+
+import CreateAccountTermsText from '@ilhamirfan/components/common/createAccountTermsText';
+import Copyright from '@ilhamirfan/components/common/copyright';
+import EnterEmailState from './enterEmailState';
+import EnterPasswordState from './enterPasswordState';
 
 export default function LoginPage() {
-  return (
-    <div className='row h-100'>
-      <div className='col-6 form-container'>
-        <h3 className='form-title'>Sign in to manage your property</h3>
-        <p className='form-desc'>Create an account to list and manage your property.</p>
+    const [loginState, setLoginState] = useState('email');
 
-        <form>
-          <TextInput label='Email Address' placeholder='Enter your email address' name='email' type='email' />
+    function handleEmailSubmit(email: string) {
+        setLoginState('password');
+        setEmailInput(email);
+    };
 
-          <PasswordInput label='Password' placeholder='Enter your password' name='password' />
-        </form>
-      </div>
-      <div className='col-6 mosque-background'>
-      </div>
-    </div>
-  )
+    const [emailInput, setEmailInput] = useState('');
+
+    function handleLoginSuccess() {
+        alert("Login Success!");
+    }
+
+    return (
+        <div className='row h-100'>
+            <div className='col-12 col-lg-6 form-container flex-column d-flex'>
+                <div className='flex-grow-1'>
+                    {loginState === 'email' && <EnterEmailState onEmailSubmit={handleEmailSubmit} />}
+                    {loginState === 'password' && (
+                        <EnterPasswordState currentEmail={emailInput} onLoginSuccess={handleLoginSuccess} />
+                    )}
+                    <CreateAccountTermsText />
+                </div>
+                <Copyright />
+            </div>
+            <div className='col-6 d-none d-lg-block mosque-background'>{/* Mosque background image */}</div>
+        </div>
+    );
 }

@@ -17,10 +17,41 @@ $theme-colors: (
 @font-face {
 	font-family: 'GeneralSans';
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 100 900;
 	src: url('../public/font/GeneralSans-Variable.woff2') format('woff2');
 }
 
 * {
-	font-family: 'GeneralSans';
+	font-family: 'GeneralSans', sans-serif;
+}
+
+hr {
+	border-color: variables.$border;
+	margin: 1.5rem 0;
+}
+
+.text-link-primary {
+	color: variables.$primary;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.loading-spinner {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 100%;
+	border: 2px solid variables.$light;
+	border-radius: 50%;
+	border-top-color: transparent;
+	animation: spin 1s linear infinite;
+	background-color: transparent;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }

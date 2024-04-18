@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { ChangeEvent, useState } from 'react'
 
 import "@ilhamirfan/styles/textInput.scss"
 
@@ -7,13 +9,37 @@ interface TextInputProps {
     placeholder: string;
     name: string;
     type?: string;
+    onInputChange?: (value: string) => void;
+    isError?: boolean;
+    errorText?: string;
 }
 
 export default function TextInput(props: TextInputProps) {
+    const [textInput, setTextInput] = useState("")
+
+    function onTextChange(e: ChangeEvent<HTMLInputElement>) {
+        e.preventDefault();
+
+        const value = e.target.value;
+
+        setTextInput(value);
+
+        if (props.onInputChange) {
+            props.onInputChange(value);
+        }
+    }
+
     return (
         <div className='text-input'>
-            <label className="form-label">{props.label}</label>
-            <input type={props.type ?? 'text'} className="form-control" placeholder={props.placeholder} name={props.name} />
+            <label>{props.label}</label>
+            <input type={props.type ?? 'text'} placeholder={props.placeholder} name={props.name} onChange={onTextChange} value={textInput} />
+
+            {
+                props.isError ?
+                    <span className='input-error'>{props.errorText}</span>
+                    :
+                    <></>
+            }
         </div>
     )
 }
