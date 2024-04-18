@@ -1,0 +1,69 @@
+@use 'variables';
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+
+	.navbar {
+		height: 5rem;
+
+		.navbar-brand {
+			height: 1.625rem;
+			padding: 0;
+		}
+
+		.navbar-nav {
+			.vertical-divider {
+				align-self: stretch;
+				border: 1px solid variables.$border;
+				margin: 0rem 2rem;
+			}
+
+			.help-button {
+				height: 2.5rem;
+				padding: 0.625rem 1.5rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: variables.$light;
+			}
+		}
+	}
+
+    main {
+        flex: 1;
+    }
+
+    .form-container {
+        padding-top: 6rem;
+        padding-left: 4.5rem;
+        padding-right: 4.5rem;
+        padding-bottom: 2rem;
+
+        .form-title {
+            font-size: 2.25rem;
+            line-height: 2.75rem;
+            font-weight: 600;
+        }
+        
+        .form-desc {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 400;
+            color: variables.$text-muted;
+            margin-top: 0.75rem;
+        }
+
+        form {
+            margin-top: 2rem;
+        }
+    }
+
+	.mosque-background {
+		background-image: url('../public/image/background.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+	}
+}

@@ -1,0 +1,26 @@
+@use 'variables';
+
+$theme-colors: (
+	'primary': variables.$primary,
+	'secondary': variables.$secondary,
+
+	'success': variables.$success,
+	'info': variables.$info,
+	'warning': variables.$warning,
+	'danger': variables.$danger,
+
+	'light': variables.$light,
+	'dark': variables.$dark,
+);
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
+
+@font-face {
+	font-family: 'GeneralSans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../public/font/GeneralSans-Variable.woff2') format('woff2');
+}
+
+* {
+	font-family: 'GeneralSans';
+}

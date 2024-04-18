@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import "@ilhamirfan/styles/global.scss"
 
-const inter = Inter({ subsets: ["latin"] });
+import localFont from 'next/font/local'
+ 
+const myFont = localFont({
+  src: '../public/font/GeneralSans-Variable.woff2',
+  display: 'swap',
+})
+ 
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={myFont.className}>
+      <body >{children}</body>
     </html>
   );
 }
