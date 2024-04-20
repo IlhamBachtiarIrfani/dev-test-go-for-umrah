@@ -1,3 +1,5 @@
+'use client'
+
 import PrimaryButton from "@ilhamirfan/components/input/button/primaryButton";
 import TextInput from "@ilhamirfan/components/input/textInput";
 import { validateEmail } from "@ilhamirfan/helper/validation";

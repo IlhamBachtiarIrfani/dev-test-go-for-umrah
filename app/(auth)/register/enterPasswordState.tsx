@@ -1,10 +1,11 @@
-import { validateName, validatePassword } from '@ilhamirfan/helper/validation';
+'use client'
+
+import { validatePassword } from '@ilhamirfan/helper/validation';
 import Image from 'next/image';
 import React, { useState, FormEvent, MouseEvent } from 'react'
 
 import arrowLeftIcon from '@ilhamirfan/public/icon/arrow-left.svg'
 import ErrorAlert from '@ilhamirfan/components/common/errorAlert';
-import TextInput from '@ilhamirfan/components/input/textInput';
 import PrimaryButton from '@ilhamirfan/components/input/button/primaryButton';
 import PasswordInput from '@ilhamirfan/components/input/passwordInput';
 

@@ -1,3 +1,5 @@
+'use client'
+
 import PrimaryButton from "@ilhamirfan/components/input/button/primaryButton";
 import PasswordInput from "@ilhamirfan/components/input/passwordInput";
 import { validateSimplePassword } from "@ilhamirfan/helper/validation";

@@ -1,3 +1,5 @@
+'use client'
+
 import PrimaryButton from "@ilhamirfan/components/input/button/primaryButton";
 import { validateName, validatePhone, validateUsername } from "@ilhamirfan/helper/validation";
 import { useState, FormEvent, MouseEvent } from "react";
