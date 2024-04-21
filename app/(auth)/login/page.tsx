@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import React, { useState } from 'react';
@@ -9,9 +10,7 @@ import Copyright from '@ilhamirfan/components/common/copyright';
 import EnterEmailState from './enterEmailState';
 import EnterPasswordState from './enterPasswordState';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
-import mosqueBackground from '@ilhamirfan/public/image/background.png'
 
 export default function LoginPage() {
     const router = useRouter();
@@ -19,7 +18,7 @@ export default function LoginPage() {
     const [loginState, setLoginState] = useState('email');
     const [emailInput, setEmailInput] = useState('');
     const csrfToken = getCsrfToken();
-    
+
 
     function handleEmailSubmit(email: string) {
         setLoginState('password');
@@ -56,7 +55,12 @@ export default function LoginPage() {
                 <Copyright />
             </div>
             <div className='col-6 d-none d-lg-block p-0'>
-                <Image src={mosqueBackground} alt='mosque-background' className='mosque-background' />
+                <img
+                    src="/image/background.png"
+                    srcSet='/image/background@2x.png 2x'
+                    alt='mosque-background'
+                    className='mosque-background'
+                />
             </div>
         </div>
     );

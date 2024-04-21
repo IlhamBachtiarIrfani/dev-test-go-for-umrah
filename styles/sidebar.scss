@@ -88,6 +88,19 @@ $active-color: #1cb78d;
 			background-color: variables.$light;
 			border: 1px solid variables.$border;
 
+			.sidebar-toggle {
+				width: 2rem;
+				height: 2rem;
+				flex: none;
+				align-items: center;
+				justify-content: center;
+				background: transparent;
+				border: none;
+				outline: none;
+				padding: 0;
+				margin: 0;
+			}
+
 			.user-info-container {
 				cursor: pointer;
 				display: flex;

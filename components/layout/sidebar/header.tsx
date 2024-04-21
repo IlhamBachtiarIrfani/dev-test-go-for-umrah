@@ -5,6 +5,8 @@ import SearchInput from '@ilhamirfan/components/input/searchInput';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
 
+import LayoutIcon from '@ilhamirfan/public/icon/layout.svg'
+
 import React, { MouseEvent } from 'react'
 
 import BellIcon from '@ilhamirfan/public/icon/bell.svg'
@@ -34,11 +36,9 @@ export default function Header(props: HeaderProps) {
     return (
         <header className='header-container'>
             <div className='d-flex align-items-center gap-4'>
-                <div className='d-block d-lg-none'>
-                    <button onClick={handleToggleSidebar}>
-                        Sidebar
-                    </button>
-                </div>
+                <button onClick={handleToggleSidebar} className='d-flex d-lg-none sidebar-toggle'>
+                    <LayoutIcon />
+                </button>
 
                 <Avatar title='Big Makkah Hotel' src="/image/background.png">
                     <span>#10292827</span>
