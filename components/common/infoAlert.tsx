@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react'
 
-import InfoIcon from '@ilhamirfan/public/icon/Info.svg'
+import InfoIcon from '@ilhamirfan/public/icon/info.svg'
 
 import '@ilhamirfan/styles/alert.scss'
 
