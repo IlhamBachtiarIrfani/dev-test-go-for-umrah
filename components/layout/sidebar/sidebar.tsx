@@ -3,14 +3,18 @@ import Link from 'next/link'
 import React from 'react'
 
 
-import logoSvg from "@ilhamirfan/public/logo-dark.svg"
+import LogoSvg from "@ilhamirfan/public/logo-dark.svg"
 
-export default function Sidebar() {
+interface SidebarProps {
+    show: boolean;
+}
+
+export default function Sidebar(props: SidebarProps) {
     return (
-        <aside className='sidebar'>
+        <aside className={`sidebar ${props.show ? "show" : ""}`}>
             <div className='brand-container'>
                 <Link className='navbar-brand' href='/'>
-                    <Image src={logoSvg} alt='logo goforumrah' priority />
+                    <LogoSvg />
                 </Link>
             </div>
             <div className='navigation-container'>

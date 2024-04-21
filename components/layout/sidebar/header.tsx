@@ -3,15 +3,18 @@
 import Avatar from '@ilhamirfan/components/common/avatar';
 import SearchInput from '@ilhamirfan/components/input/searchInput';
 import { useSession, signOut } from 'next-auth/react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import React, { MouseEvent } from 'react'
 
-import bellIcon from '@ilhamirfan/public/icon/bell.svg'
-import userIcon from '@ilhamirfan/public/icon/user.svg'
+import BellIcon from '@ilhamirfan/public/icon/bell.svg'
+import UserIcon from '@ilhamirfan/public/icon/user.svg'
 
-export default function Header() {
+interface HeaderProps {
+    onToggleSidebar: () => void;
+}
+
+export default function Header(props: HeaderProps) {
     const { data } = useSession({
         required: true,
     });
@@ -21,28 +24,41 @@ export default function Header() {
 
         signOut();
     }
+
+    function handleToggleSidebar(e: MouseEvent) {
+        e.preventDefault()
+
+        props.onToggleSidebar();
+    }
+
     return (
         <header className='header-container'>
             <div className='d-flex align-items-center gap-4'>
+                <div className='d-block d-lg-none'>
+                    <button onClick={handleToggleSidebar}>
+                        Sidebar
+                    </button>
+                </div>
+
                 <Avatar title='Big Makkah Hotel' src="/image/background.png">
                     <span>#10292827</span>
                 </Avatar>
 
-                <Link href={"#"} className='text-link-primary'>See your property</Link>
+                <Link href={"#"} className='text-link-primary d-none d-md-block'>See your property</Link>
             </div>
 
             <div className='d-flex gap-4 align-items-center gap-4'>
-                <form>
+                <form className='d-none d-lg-block'>
                     <SearchInput placeholder='Search' name='search' />
                 </form>
 
-                <Image src={bellIcon} alt='bell-icon' />
+                <BellIcon />
 
                 <div onClick={handleLogout} className='user-info-container'>
                     <div className='user-avatar'>
-                        <Image src={userIcon} alt='user-icon' />
+                        <UserIcon />
                     </div>
-                    <span>
+                    <span className='d-none d-sm-block'>
                         {data?.user?.email}
                     </span>
                 </div>

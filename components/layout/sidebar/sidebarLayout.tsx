@@ -1,6 +1,8 @@
+'use client'
+
 import '@ilhamirfan/styles/sidebar.scss'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from './sidebar';
 import Header from './header';
 
@@ -9,13 +11,18 @@ interface SidebarLayoutProps {
 }
 
 export default function SidebarLayout(props: SidebarLayoutProps) {
+    const [showMobileSideBar, setShowMobileSideBar] = useState(false)
+
+    function toggleShowMobileSideBar() {
+        setShowMobileSideBar(value => !value);
+    }
 
     return (
-        <div className='main-container'>
-            <Sidebar />
+        <div className='sidebar-main-container'>
+            <Sidebar show={showMobileSideBar} />
 
             <div className='content-container'>
-                <Header />
+                <Header onToggleSidebar={toggleShowMobileSideBar} />
                 <main>
                     {props.children}
                 </main>

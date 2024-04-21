@@ -12,7 +12,7 @@ interface infoAlertProps {
 export default function InfoAlert(props: infoAlertProps) {
     return (
         <div className="custom-alert-info" role="alert">
-            <Image src={InfoIcon} alt='info' />
+            <InfoIcon />
             {props.label}
         </div>
     )

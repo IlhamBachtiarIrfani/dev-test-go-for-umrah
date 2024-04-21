@@ -29,6 +29,7 @@ $theme-colors: (
 
 html, body {
 	width: 100%;
+	font-size: 16px;
 }
 
 hr {
@@ -143,5 +144,29 @@ hr {
 		.email {
 			font-weight: 600;
 		}
+	}
+}
+
+.nav-tab {
+	display: flex;
+
+	.nav-tab-item {
+		text-decoration: none;
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+		padding: 1rem 2.125rem;
+		color: variables.$dark;
+		margin: 0;
+		border-bottom: 2px solid transparent;
+	}
+
+	.nav-tab-item:hover {
+		background-color: variables.$input-background;
+	}
+
+	.nav-tab-item.active  {
+		font-weight: 600;
+		color: variables.$primary;
+		border-bottom: 2px solid variables.$primary;
 	}
 }

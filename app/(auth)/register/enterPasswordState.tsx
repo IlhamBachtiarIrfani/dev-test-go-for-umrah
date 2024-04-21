@@ -4,7 +4,7 @@ import { validatePassword } from '@ilhamirfan/helper/validation';
 import Image from 'next/image';
 import React, { useState, FormEvent, MouseEvent } from 'react'
 
-import arrowLeftIcon from '@ilhamirfan/public/icon/arrow-left.svg'
+import ArrowLeftIcon from '@ilhamirfan/public/icon/arrow-left.svg'
 import ErrorAlert from '@ilhamirfan/components/common/errorAlert';
 import PrimaryButton from '@ilhamirfan/components/input/button/primaryButton';
 import PasswordInput from '@ilhamirfan/components/input/passwordInput';
@@ -72,7 +72,7 @@ export default function EnterPasswordState(props: EnterPasswordStateProps) {
     return (
         <>
             <button onClick={handleBackClick} className='back-btn'>
-                <Image src={arrowLeftIcon} alt='arrow-left' />
+                <ArrowLeftIcon />
                 <span>Back</span>
             </button>
 

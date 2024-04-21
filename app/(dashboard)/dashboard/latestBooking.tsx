@@ -28,7 +28,7 @@ export default function LatestBooking() {
 
 function TableItem() {
     return (
-        <tr className='border-top border-bottom'>
+        <tr className='border-top border-bottom text-nowrap'>
             <td className='px-4 py-3'>
                 <Avatar title='Guy Hawkins' src="/image/background.png">
                     <span>1 Nights</span>

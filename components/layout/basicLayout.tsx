@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 
-import logoSvg from "@ilhamirfan/public/logo.svg"
-import globeIcon from "@ilhamirfan/public/icon/globe.svg"
+import LogoSvg from "@ilhamirfan/public/logo.svg"
+import GlobeIcon from "@ilhamirfan/public/icon/globe.svg"
 
 interface BasicLayoutProps {
     children: React.ReactNode;
@@ -14,12 +14,12 @@ interface BasicLayoutProps {
 
 export default function BasicLayout(props: BasicLayoutProps) {
   return (
-    <div className='main-container'>
+    <div className='basic-main-container'>
             <nav className="navbar navbar-expand-sm bg-secondary flex-none">
                 <div className="container">
                     {/* ===== LOGO BRAND ===== */}
                     <Link className='navbar-brand' href='/'>
-                        <Image src={logoSvg} alt='logo goforumrah' priority />
+                        <LogoSvg />
                     </Link>
 
 
@@ -49,7 +49,7 @@ export default function BasicLayout(props: BasicLayoutProps) {
 function LanguageButton() {
     return (
         <div>
-            <Image src={globeIcon} alt='globe-icon' priority />
+            <GlobeIcon />
             <span className='text-light ps-1'>En</span>
         </div>
     )

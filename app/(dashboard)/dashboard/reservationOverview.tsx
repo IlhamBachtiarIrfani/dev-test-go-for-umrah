@@ -11,6 +11,11 @@ export default function ReservationOverview() {
             </DashboardTitle>
 
             <div className='bg-light p-3 rounded my-3 overflow-auto'>
+                <nav className='nav-tab text-nowrap'>
+                    <a className='nav-tab-item active' href='#'>Departure</a>
+                    <a className='nav-tab-item' href='#'>Arival</a>
+                    <a className='nav-tab-item' href='#'>Stay-over</a>
+                </nav>
                 <table className='table table-hover'>
                     <tbody>
                         {
@@ -27,7 +32,7 @@ export default function ReservationOverview() {
 
 function TableItem() {
     return (
-        <tr className='border-top border-bottom'>
+        <tr className='border-top border-bottom text-nowrap'>
             <td className='px-4 py-3'>
                 <Avatar title='Guy Hawkins' src="/image/background.png">
                     <span>#10292827</span>

@@ -8,7 +8,7 @@ import InfoAlert from "@ilhamirfan/components/common/infoAlert";
 import PhoneInput from "@ilhamirfan/components/input/phoneInput";
 import Image from "next/image";
 
-import arrowLeftIcon from '@ilhamirfan/public/icon/arrow-left.svg'
+import ArrowLeftIcon from '@ilhamirfan/public/icon/arrow-left.svg'
 
 interface EnterDataStateProps {
     firstName: string,
@@ -64,7 +64,7 @@ export default function EnterDataState(props: EnterDataStateProps) {
     return (
         <>
             <button onClick={handleBackClick} className='back-btn'>
-                <Image src={arrowLeftIcon} alt='arrow-left' />
+                <ArrowLeftIcon />
                 <span>Back</span>
             </button>
 

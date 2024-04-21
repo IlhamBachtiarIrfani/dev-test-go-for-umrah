@@ -5,7 +5,7 @@ $background-color: #fafbfb;
 $active-bg: #fafbfb;
 $active-color: #1cb78d;
 
-.main-container {
+.sidebar-main-container {
 	display: flex;
 	width: 100%;
 	min-height: 100dvh;
@@ -17,9 +17,11 @@ $active-color: #1cb78d;
 		height: 100dvh;
 		background-color: variables.$light;
 		border: 1px solid variables.$border;
-		position: sticky;
+		position: fixed;
+		left: 0;
 		top: 0;
 		bottom: 0;
+		display: none;
 
 		.brand-container {
 			display: flex;
@@ -63,7 +65,21 @@ $active-color: #1cb78d;
 		}
 	}
 
+	.sidebar.show {
+		display: block;
+	}
+
+	@media screen and (min-width: map-get(variables.$grid-breakpoints, 'lg')) {
+		.sidebar {
+			display: block;
+			position: sticky;
+			top: 0;
+			bottom: 0;
+		}
+	}
+
 	.content-container {
+		max-width: 100%;
 		flex: 1;
 		flex-grow: 1;
 
@@ -94,7 +110,7 @@ $active-color: #1cb78d;
 					width: 2rem;
 					height: 2rem;
 					border-radius: 50%;
-					background-color: #D9E0E4;
+					background-color: #d9e0e4;
 				}
 			}
 		}
