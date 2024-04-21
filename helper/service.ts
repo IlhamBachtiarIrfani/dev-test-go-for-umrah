@@ -17,11 +17,7 @@ export async function baseApiRequest<ResponseType = any>(
 
         const response = await res.json();
 
-        if (!response.success) {
-            throw new Error(response.errors || "Request failed"); // Generic error
-        }
-
-        return response.data || response as ResponseType; // Type safe return
+        return response as ResponseType; // Type safe return
     } catch (error) {
         console.error(`API request failed (url: ${url}):`, error);
         throw error; // Re-throw for handling in calling code

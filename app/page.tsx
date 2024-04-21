@@ -1,12 +1,7 @@
-import Image from "next/image";
+'use server'
 
-export default function Home() {
-  return (
-    <main className='container'>
-      <h1 className='text-center'>NextJS Application</h1>
-      <button className='btn btn-primary m-2'>Button</button>
-      <button className='btn btn-secondary m-2'>Button</button>
-      <button className='btn btn-danger m-2'>Button</button>
-    </main>
-  );
+import { redirect } from "next/navigation"
+
+export default async function index() {
+  return redirect("/dashboard")
 }

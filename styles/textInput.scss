@@ -18,6 +18,8 @@
 		border: 1px solid variables.$border;
 		border-radius: 0.625rem;
 		background-color: variables.$input-background;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
 	}
 
 	input::placeholder {

@@ -1,5 +1,3 @@
-"use client"
-
 import { baseApiRequest } from "@ilhamirfan/helper/service";
 
 export async function requestLogin(email: string, password: string) {
@@ -8,6 +6,13 @@ export async function requestLogin(email: string, password: string) {
     try {
         const loginResponse = await baseApiRequest("/hotel-business/login", "POST", loginData);
 
+        if (!loginResponse.success) {
+            throw Error(loginResponse.errors)
+        }
+
+        console.log(loginResponse);
+
+        return loginResponse.data;
     } catch (error) {
         if (error instanceof Error) {
             switch (error.message) {

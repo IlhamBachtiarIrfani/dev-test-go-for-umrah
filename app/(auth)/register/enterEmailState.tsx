@@ -23,8 +23,6 @@ export default function EnterEmailState(props: EnterEmailStateProps) {
 
         const emailValidation = validateEmail(emailInput);
 
-        console.log(emailValidation);
-
         if (!emailValidation.isValid) {
             setEmailError(emailValidation.errorMessage ?? null);
             setIsSubmitting(false);

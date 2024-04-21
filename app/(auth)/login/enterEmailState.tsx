@@ -27,24 +27,13 @@ export default function EnterEmailState(props: EnterEmailStateProps) {
 
         const emailValidation = validateEmail(emailInput);
 
-        console.log(emailValidation);
-
         if (!emailValidation.isValid) {
             setEmailError(emailValidation.errorMessage ?? null);
             setIsSubmitting(false);
             return;
         }
 
-        try {
-            // Call props.onEmailSubmit to submit email asynchronously
-            await props.onEmailSubmit(emailInput);
-            // Handle successful submission (e.g., navigate to next step)
-        } catch (error) {
-            console.error("Error submitting email:", error);
-            // Handle submission error (e.g., display error message)
-        } finally {
-            setIsSubmitting(false); // Reset submitting state after completion
-        }
+        await props.onEmailSubmit(emailInput);
     };
 
     return (
@@ -68,7 +57,8 @@ export default function EnterEmailState(props: EnterEmailStateProps) {
                 <PrimaryButton
                     className="mt-4"
                     title={isSubmitting ? "Submitting..." : "Continue"}
-                    disabled={isSubmitting} // Disable button while submitting
+                    disabled={isSubmitting}
+                    isLoading={isSubmitting}
                 />
             </form>
 

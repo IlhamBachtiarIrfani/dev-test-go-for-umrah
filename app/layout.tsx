@@ -1,18 +1,9 @@
-import type { Metadata } from "next";
+'use client'
+
 import "@ilhamirfan/styles/global.scss"
 import "@ilhamirfan/styles/button.scss"
 
-import localFont from 'next/font/local'
-
-const myFont = localFont({
-  src: '../public/font/GeneralSans-Variable.woff2',
-  display: 'swap',
-})
-
-export const metadata: Metadata = {
-  title: "goforumrah.com",
-  description: "developer test case by Ilham Bachtiar Irfani",
-};
+import { SessionProvider } from "next-auth/react";
 
 export default function RootLayout({
   children,
@@ -20,8 +11,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={myFont.className}>
-      <body >{children}</body>
+    <html lang="en">
+      <body>
+        <SessionProvider>
+          {children}
+        </SessionProvider>
+      </body>
     </html>
   );
 }

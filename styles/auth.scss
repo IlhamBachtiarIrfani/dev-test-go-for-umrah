@@ -3,7 +3,7 @@
 .main-container {
 	display: flex;
 	flex-direction: column;
-	height: 100dvh;
+	min-height: 100dvh;
 
 	.navbar {
 		height: 5rem;

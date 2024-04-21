@@ -5,12 +5,11 @@ import PasswordInput from "@ilhamirfan/components/input/passwordInput";
 import { validateSimplePassword } from "@ilhamirfan/helper/validation";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
-import { requestLogin } from "./action";
 import ErrorAlert from "@ilhamirfan/components/common/errorAlert";
 
 interface EnterPasswordStateProps {
     currentEmail: string;
-    onLoginSuccess: () => void;
+    onLoginSubmit: (email: string, password: string) => void;
 }
 
 export default function EnterPasswordState(props: EnterPasswordStateProps) {
@@ -40,8 +39,7 @@ export default function EnterPasswordState(props: EnterPasswordStateProps) {
         setIsLoading(true);
 
         try {
-            const response = await requestLogin(props.currentEmail, passwordInput);
-            props.onLoginSuccess(); // Pass login response if available
+            await props.onLoginSubmit(props.currentEmail, passwordInput);
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setLoginError(error.message);
@@ -73,12 +71,16 @@ export default function EnterPasswordState(props: EnterPasswordStateProps) {
                 />
 
                 <div className="my-4">
-                    <Link className="text-link-primary" href="/forgot-password">
+                    <Link className="text-link-primary" href={`forgot-password?email=${props.currentEmail}`}>
                         Forgot Password?
                     </Link>
                 </div>
 
-                <PrimaryButton title="Continue" isLoading={isLoading} />
+                <PrimaryButton
+                 title="Continue" 
+                 disabled={isLoading}
+                 isLoading={isLoading}
+                  />
             </form>
 
             <hr />

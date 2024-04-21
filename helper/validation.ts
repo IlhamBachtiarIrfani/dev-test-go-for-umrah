@@ -3,13 +3,32 @@ interface ValidationResult {
     errorMessage?: string;
 }
 
-function validateEmail(email: string): ValidationResult {
+export function validateEmail(email: string): ValidationResult {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = emailRegex.test(email);
     return { isValid, errorMessage: isValid ? undefined : 'Invalid email format' };
 }
+export function censorEmail(email: string) {
+    const {isValid, errorMessage} = validateEmail(email);
 
-function validatePassword(password: string): ValidationResult {
+    if (!isValid) {
+        throw Error(errorMessage);
+    }
+    
+    const [username, domain] = email.split("@");
+    const firstLetter = username[0];
+    const lastLetter = username.slice(-1);
+    const domainParts = domain.split(".");
+    const domainName = domainParts[0];
+    const firstLetterDomainName = domainName[0];
+    const topLevelDomain = domainParts.pop();
+
+    const censoredUsername = `${firstLetter}${username.slice(1, -1).replace(/./g, "*")}${lastLetter}`;
+
+    return `${censoredUsername}@${firstLetterDomainName}${domainName.slice(1, domainName.length).replace(/./g, "*")}.${topLevelDomain}`;
+}
+
+export function validatePassword(password: string): ValidationResult {
     const hasNumber = /\d/.test(password);
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
@@ -35,7 +54,7 @@ function validatePassword(password: string): ValidationResult {
     return { isValid, errorMessage };
 }
 
-function validateSimplePassword(password: string): ValidationResult {
+export function validateSimplePassword(password: string): ValidationResult {
     const isLongEnough = password.length >= 5;
 
     const isValid = isLongEnough;
@@ -43,7 +62,7 @@ function validateSimplePassword(password: string): ValidationResult {
     return { isValid, errorMessage };
 }
 
-function validateUsername(username: string): ValidationResult {
+export function validateUsername(username: string): ValidationResult {
     const usernameRegex = /^[A-Za-z][A-Za-z0-9_]*$/; // Restricts starting character and allowed characters
     const minLength = 5;
     const maxLength = 30;
@@ -63,7 +82,7 @@ function validateUsername(username: string): ValidationResult {
     return { isValid, errorMessage };
 }
 
-function validateName(name: string, fieldName: string): ValidationResult {
+export function validateName(name: string, fieldName: string): ValidationResult {
     const usernameRegex = /^[a-zA-Z ]+$/; // Restricts starting character and allowed characters
     const minLength = 3;
     const maxLength = 30;
@@ -83,7 +102,7 @@ function validateName(name: string, fieldName: string): ValidationResult {
     return { isValid, errorMessage };
 }
 
-function validatePhone(name: string): ValidationResult {
+export function validatePhone(name: string): ValidationResult {
     const usernameRegex = /^[0-9+]+$/; // Restricts starting character and allowed characters
     const minLength = 7;
     const maxLength = 15;
@@ -102,6 +121,3 @@ function validatePhone(name: string): ValidationResult {
     const errorMessage = isValid ? undefined : validationErrors.join('\n'); // Combine errors
     return { isValid, errorMessage };
 }
-
-
-export { validateEmail, validatePassword, validateSimplePassword, validateUsername, validateName, validatePhone };

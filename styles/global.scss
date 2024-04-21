@@ -1,5 +1,7 @@
 @use 'variables';
 
+$border-color: variables.$border;
+
 $theme-colors: (
 	'primary': variables.$primary,
 	'secondary': variables.$secondary,
@@ -79,4 +81,34 @@ hr {
 	font-size: 1.125rem;
 	line-height: 1.625rem;
 	font-weight: 600;
+}
+
+.avatar-container {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	.image {
+		width: 3rem;
+		height: 3rem;
+		border-radius: 0.25rem;
+		overflow: hidden;
+		object-fit: cover;
+	}
+
+	.title {
+		font-size: 1.125rem;
+		line-height: 1.625rem;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.children-container {
+		display: flex;
+		gap: 1.75rem;
+	}
+}
+
+.btn-outline-primary {
+	background-color: variables.$light;
 }

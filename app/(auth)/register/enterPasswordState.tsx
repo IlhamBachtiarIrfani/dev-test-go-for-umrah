@@ -10,7 +10,7 @@ import PrimaryButton from '@ilhamirfan/components/input/button/primaryButton';
 import PasswordInput from '@ilhamirfan/components/input/passwordInput';
 
 interface EnterPasswordStateProps {
-    onPasswordSubmit: () => void;
+    onPasswordSubmit: (password: string) => void;
     onPasswordCancel: () => void;
 }
 
@@ -51,8 +51,7 @@ export default function EnterPasswordState(props: EnterPasswordStateProps) {
         setIsLoading(true);
 
         try {
-
-            props.onPasswordSubmit();
+            await props.onPasswordSubmit(passwordInput);
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setRegisterError(error.message);
@@ -105,7 +104,7 @@ export default function EnterPasswordState(props: EnterPasswordStateProps) {
                     />
                 </div>
 
-                <PrimaryButton title="Continue" isLoading={isLoading} />
+                <PrimaryButton title="Continue" isLoading={isLoading} disabled={isLoading} />
             </form>
 
             <hr />
