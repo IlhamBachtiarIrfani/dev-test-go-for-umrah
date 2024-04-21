@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import InputEmailState from './inputEmailState'
 import SuccessState from './successState'
 import { requestForgotPassword } from '@ilhamirfan/app/api/auth/[...nextauth]/forgotPasswordAction'
@@ -13,7 +13,7 @@ export default function ForgotPasswordPage() {
         setEmail(email);
         const result = await requestForgotPassword(email);
 
-        
+
         console.log(result);
 
         if (!result.success) {
@@ -29,6 +29,8 @@ export default function ForgotPasswordPage() {
     }
 
     return (
-        <InputEmailState onEmailSubmit={handleEmailSubmit} />
+        <Suspense>
+            <InputEmailState onEmailSubmit={handleEmailSubmit} />
+        </Suspense>
     )
 }

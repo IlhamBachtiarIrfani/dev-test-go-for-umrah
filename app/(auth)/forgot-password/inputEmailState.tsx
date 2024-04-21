@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, FormEvent } from 'react'
 import CreateAccountTermsText from '../../../components/common/createAccountTermsText'
 import TextInput from '@ilhamirfan/components/input/textInput'
