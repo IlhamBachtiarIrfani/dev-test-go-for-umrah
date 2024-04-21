@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    goforumrah-next-app:
+        container_name: goforumrah-next-app
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - 9300:3000
