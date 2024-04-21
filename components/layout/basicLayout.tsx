@@ -26,11 +26,11 @@ export default function BasicLayout(props: BasicLayoutProps) {
                     <ul className='navbar-nav d-flex align-items-center'>
 
                         {/* ===== LANGUAGE ===== */}
-                        <li className='nav-item'>
+                        <li className='nav-item d-none d-sm-block'>
                             <LanguageButton />
                         </li>
 
-                        <span className='vertical-divider' />
+                        <span className='vertical-divider d-none d-sm-block' />
 
                         {/* ===== HELP BUTTON ===== */}
                         <li className='nav-item'>
@@ -39,7 +39,7 @@ export default function BasicLayout(props: BasicLayoutProps) {
                     </ul>
                 </div>
             </nav>
-            <main className='container-fluid'>
+            <main className='container-fluid d-flex flex-column'>
                 {props.children}
             </main>
         </div>

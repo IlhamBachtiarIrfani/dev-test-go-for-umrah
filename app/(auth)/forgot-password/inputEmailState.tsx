@@ -6,6 +6,9 @@ import Copyright from '@ilhamirfan/components/common/copyright'
 import { validateEmail } from '@ilhamirfan/helper/validation'
 import ErrorAlert from '@ilhamirfan/components/common/errorAlert'
 import { useSearchParams } from 'next/navigation'
+import Image from 'next/image';
+
+import mosqueBackground from '@ilhamirfan/public/image/background.png'
 
 interface InputEmailStateProps {
     onEmailSubmit: (email: string) => void
@@ -89,7 +92,8 @@ export default function InputEmailState(props: InputEmailStateProps) {
 
                 <Copyright />
             </div>
-            <div className='col-6 d-none d-lg-block mosque-background'>
+            <div className='col-6 d-none d-lg-block p-0'>
+                <Image src={mosqueBackground} alt='mosque-background' className='mosque-background' />
             </div>
         </div>
     )

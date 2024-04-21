@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, MouseEvent, ChangeEvent, useEffect } from 'react'
+import React, { useState, ChangeEvent, useEffect } from 'react'
 
 import "@ilhamirfan/styles/phoneInput.scss"
 

@@ -10,10 +10,10 @@ import SuccessState from './successState';
 import { requestRegister } from '@ilhamirfan/app/api/auth/[...nextauth]/registerAction';
 import { getCsrfToken, signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import mosqueBackground from '@ilhamirfan/public/image/background.png'
 
 export default function RegisterPage() {
-    const router = useRouter();
-
     const [registerState, setRegisterState] = useState('email');
 
     const [emailInput, setEmailInput] = useState("");
@@ -21,8 +21,6 @@ export default function RegisterPage() {
     const [lastNameInput, setLastNameInput] = useState("")
     const [userNameInput, setUserNameInput] = useState("")
     const [phoneInput, setPhoneInput] = useState("")
-
-    const csrfToken = getCsrfToken();
 
     function handleEmailSubmit(email: string) {
         setRegisterState('data');
@@ -42,24 +40,13 @@ export default function RegisterPage() {
     }
 
     async function handleRegisterSubmit(password: string) {
-        const resultRegister = await requestRegister(emailInput, password, firstNameInput, lastNameInput, userNameInput, phoneInput);
-
-        const result = await signIn("credentials", {
-            redirect: false,
-            email: emailInput,
-            password: password,
-            userAgent: navigator.userAgent,
-            deviceInfo: navigator.platform,
-            csrfToken: csrfToken,
-        });
+        const result = await requestRegister(emailInput, password, firstNameInput, lastNameInput, userNameInput, phoneInput);
 
         if (result?.error) {
             throw Error(result.error);
-        } else {
-            router.push("/dashboard")
         }
         
-        alert(result);
+        console.log(result);
         setRegisterState("success")
     }
 
@@ -104,7 +91,9 @@ export default function RegisterPage() {
                 </div>
                 <Copyright />
             </div>
-            <div className='col-6 d-none d-lg-block mosque-background'></div>
+            <div className='col-6 d-none d-lg-block p-0'>
+                <Image src={mosqueBackground} alt='mosque-background' className='mosque-background' />
+            </div>
         </div>
     );
 }

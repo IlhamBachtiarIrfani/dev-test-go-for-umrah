@@ -12,8 +12,8 @@ interface FullPageAlertProps {
 
 export default function FullPageAlert(props: FullPageAlertProps) {
     return (
-        <div className='row h-100'>
-            <div className='forgot-password-success-container'>
+        <div className='row h-100 d-flex align-items-center'>
+            <div className='global-alert-container'>
                 <Image src={checkIcon} alt='check-icon' />
 
                 <h1 className='title'>{props.title}</h1>
