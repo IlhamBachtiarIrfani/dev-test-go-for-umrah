@@ -10,7 +10,7 @@ interface AvatarProps {
 export default function Avatar(props: AvatarProps) {
     return (
         <div className='avatar-container'>
-            <Image src={props.src} width={48} height={48} alt='avatar' className='image' />
+            <Image src={props.src} width={96} height={96} alt='avatar' className='image' />
             <div>
                 <p className='title'>{props.title}</p>
                 <div className='children-container'>
