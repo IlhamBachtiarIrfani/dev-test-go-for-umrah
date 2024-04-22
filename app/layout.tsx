@@ -1,22 +1,28 @@
-'use client'
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "goforumrah",
+    description: "Dev test by Ilham Bachtiar Irfani",
+    authors: {
+        name: "Ilham Bachtiar Irfani",
+        url: "https://www.linkedin.com/in/ilham-bachtiar-irfani/"
+    },
+    creator: "Ilham Bachtiar Irfani",
+};
 
 import "@ilhamirfan/styles/global.scss"
 import "@ilhamirfan/styles/button.scss"
 
-import { SessionProvider } from "next-auth/react";
-
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>
-        <SessionProvider>
-          {children}
-        </SessionProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body>
+                {children}
+            </body>
+        </html>
+    );
 }
