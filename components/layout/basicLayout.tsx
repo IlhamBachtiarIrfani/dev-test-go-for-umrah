@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'; // Import Link component from Next.js
 import React from 'react'; // Import necessary modules
 
