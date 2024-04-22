@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import React from 'react'
 
+// DashboardTitle component to render a title for a dashboard section along with additional children elements
 interface DashboardTitleProps {
-    title: string;
-    children: React.ReactNode;
+    title: string;                  // Title of the dashboard section
+    children: React.ReactNode;     // Additional React elements to be rendered alongside the title
 }
 
 export default function DashboardTitle(props: DashboardTitleProps) {

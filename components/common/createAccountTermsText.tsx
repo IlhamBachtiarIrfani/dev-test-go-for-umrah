@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
+// CreateAccountTermsText component to display the terms and conditions and privacy statement links
 export default function CreateAccountTermsText() {
     return (
         <p className='text-center mt-4 text-muted create-account-terms-text'>

@@ -1,7 +1,8 @@
 import React from 'react'
 
+// ErrorAlert component to render an error alert with a specified label
 interface ErrorAlertProps {
-    label: string;
+    label: string;  // Error message to be displayed in the alert
 }
 
 export default function ErrorAlert(props: ErrorAlertProps) {

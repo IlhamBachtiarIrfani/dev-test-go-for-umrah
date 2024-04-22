@@ -1,24 +1,24 @@
-'use client'
+import React from 'react'
 
-import React, { ChangeEvent, useState } from 'react'
+import "@ilhamirfan/styles/searchInput.scss" // Import search input styles
 
-import "@ilhamirfan/styles/searchInput.scss"
+import SearchIcon from '@ilhamirfan/public/icon/search.svg' // Import search icon
 
-import SearchIcon from '@ilhamirfan/public/icon/search.svg'
-
+// Define props interface for SearchInput component
 interface SearchInputProps {
-    placeholder: string;
-    name: string;
+    placeholder: string; // Placeholder text for the search input field
+    name: string; // Name attribute for the search input field
 }
 
+// SearchInput component to render a search input field with search icon
 export default function SearchInput(props: SearchInputProps) {
     return (
-        <div className='search-input'>
-            <SearchIcon />
+        <div className='search-input'> {/* Render search input container */}
+            <SearchIcon /> {/* Render search icon */}
             <input
-                type={'text'}
-                placeholder={props.placeholder}
-                name={props.name}
+                type={'text'} // Set input type as text
+                placeholder={props.placeholder} // Set placeholder text
+                name={props.name} // Set name attribute
             />
         </div>
     )

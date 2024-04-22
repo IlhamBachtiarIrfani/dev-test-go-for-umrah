@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+// Metadata for the application
 export const metadata: Metadata = {
     title: "goforumrah",
     description: "Dev test by Ilham Bachtiar Irfani",
@@ -10,9 +11,11 @@ export const metadata: Metadata = {
     creator: "Ilham Bachtiar Irfani",
 };
 
+// Importing global styles for the application
 import "@ilhamirfan/styles/global.scss"
 import "@ilhamirfan/styles/button.scss"
 
+// Root layout component
 export default function RootLayout({
     children,
 }: Readonly<{

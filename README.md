@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Running a Next.js Application Locally
 
-## Getting Started
+## Prerequisites
+- Node.js installed on your machine
+- npm or yarn or pnpm or bun package manager installed
 
-First, run the development server:
+## Steps
+1. Clone the repository:
+   ```
+   git clone https://github.com/IlhamBachtiarIrfani/dev-test-go-for-umrah
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Navigate to the project directory:
+   ```
+   cd dev-test-go-for-umrah
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Install dependencies:
+   ```
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Config environment variables
+   ```
+   # set api service url
+   NEXT_PUBLIC_API_URL=
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   # generate next auth secret
+   NEXT_AUTH_SECRET=
 
-## Learn More
+   # set app path url
+   APP_PATH=http://localhost:3000
+   ```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Start the development server:
+   ```
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+6. Open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-## Deploy on Vercel
+# Running a Next.js Application Using Docker
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Prerequisites
+- Docker installed on your machine
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Steps
+1. Clone the repository:
+   ```
+   git clone https://github.com/IlhamBachtiarIrfani/dev-test-go-for-umrah
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd dev-test-go-for-umrah
+   ```
+
+3. Config environment variables
+   ```
+   # set api service url
+   NEXT_PUBLIC_API_URL=
+
+   # generate next auth secret
+   NEXT_AUTH_SECRET=
+
+   # set app path url
+   APP_PATH=http://localhost:3000
+   ```
+
+4. Install dependencies:
+   ```
+   docker compose up -d --build
+   ```
+
+5. Open your web browser and navigate to [http://localhost:9300](http://localhost:9300) to view the application.
